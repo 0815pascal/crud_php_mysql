@@ -11,3 +11,5 @@ CREATE TABLE autos (
   mileage INTEGER
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 ```
+
+This application is the capstone project of the course *Building Database applications in PHP* which I took on Coursera (see my certificate [here](https://coursera.org/share/1ac7cb1ed1ca48a36f983bcf6867b22b))
