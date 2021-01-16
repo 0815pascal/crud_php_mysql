@@ -36,7 +36,7 @@
             ':mileage' => $_POST['mileage'],
             ':model' => $_POST['model'],
             'auto_id' => $_POST['autos_id']));
-        $_SESSION['success'] = 'Record edited';
+        $_SESSION['success'] = $_POST['make']." ".$_POST['model']." (".$_POST['year'].") has been edited";
         header('Location: index.php');
         return;
         } else {
@@ -55,23 +55,30 @@
     $mileage = htmlentities($row['mileage']);
     $auto_id = $row['auto_id'];
 ?>
-<html>
-    <body>
-        <h1>Editing Automobile</h1>
-        <?php 
-        if ( isset($_SESSION['error']) ) {
-            echo('<p style="color: red;">'.htmlentities($_SESSION['error'])."</p>\n");
-            unset($_SESSION['error']);
-        }
-        ?>
-        <form method="post">
-            <p>Make <input type="text" name="make" value="<?= $make ?>" /></p>
-            <p>Model <input type="text" name="model" value="<?= $model ?>" /></p>
-            <p>Year <input type="text" name="year" value="<?= $year ?>" /></p>
-            <p>Mileage <input type="text" name="mileage" value="<?= $mileage ?>" /></p>
-            <input type="hidden" name="autos_id" value="<?= $auto_id ?>" />
-            <input type="submit" value="Save" name="save"/>
-            <input type="submit" value="cancel" name="cancel"/>
-        </form>
+<!doctype html>
+<html lang="en">
+    <head>
+        <?php require_once "head.php"; ?>
+        <title>Editing <?= $make ?> <?= $model ?></title>
+    </head>
+    <body class="d-flex align-items-center">
+        <div class="w-25 container shadow p-3 mb-5 bg-white rounded ">
+            <h1>Editing <?= $make ?> <?= $model ?></h1>
+            <?php 
+            if ( isset($_SESSION['error']) ) {
+                echo('<p style="color: red;">'.htmlentities($_SESSION['error'])."</p>\n");
+                unset($_SESSION['error']);
+            }
+            ?>
+            <form method="post">
+                <p>Make <input type="text" name="make" value="<?= $make ?>" class="form-control"/></p>
+                <p>Model <input type="text" name="model" value="<?= $model ?>" class="form-control"/></p>
+                <p>Year <input type="text" name="year" value="<?= $year ?>" class="form-control"/></p>
+                <p>Mileage <input type="text" name="mileage" value="<?= $mileage ?>" class="form-control"/></p>
+                <input type="hidden" name="autos_id" value="<?= $auto_id ?>" />
+                <input type="submit" value="Save" name="save" class="btn btn-primary"/>
+                <input type="submit" value="cancel" name="cancel" class="btn btn-secondary"/>
+            </form>
+        </div>
     </body>
 </html>
