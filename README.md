@@ -4,7 +4,7 @@ This simple CRUD application written in PHP has a login functionality (password:
 
 ```
 CREATE TABLE autos(
-    autos_id INTEGER NOT NULL KEY AUTO_INCREMENT,
+    auto_id INTEGER NOT NULL KEY AUTO_INCREMENT,
     make VARCHAR(255),
     model VARCHAR(255),
     YEAR INTEGER,
