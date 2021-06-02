@@ -1,4 +1,5 @@
 # Car inventory
+## Introduction
 
 This simple CRUD application written in PHP has a login functionality (password: **php123**) and allows connecting to a MySQL-database. You can setup the database by using the following SQL command: 
 
